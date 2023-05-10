@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AllProductStateInterface } from "../../interfaces/redux-state/AllProductStateInterface";
+import { ProductInfoInterface } from "../../interfaces/ProductInfointerface";
 
 const initialState: AllProductStateInterface = {
   products: [],
@@ -11,15 +12,21 @@ export const allProduct = createSlice({
   name: "allProduct",
   initialState,
   reducers: {
-    getAllProductRequestAction: (state: any) => {
+    getAllProductRequestAction: (state) => {
       state.isLoading = true;
     },
-    //  getAllProductSuccessAction: (state: any, action: PayloadAction<[]>) => {
-    //    state.products = action.payload;
-    //    state.isLoading = false;
-    //    state.isSuccessful = true;
-    //  },
+    getAllProductSuccessAction: (
+      state,
+      action: PayloadAction<ProductInfoInterface[]>
+    ) => {
+      state.products = action.payload;
+      state.isLoading = false;
+      // state.isSuccessful = true;
+    },
   },
 });
+
+export const { getAllProductRequestAction, getAllProductSuccessAction } =
+  allProduct.actions;
 
 export default allProduct.reducer;
