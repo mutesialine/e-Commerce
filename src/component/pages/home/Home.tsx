@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getAllProductSuccessAction } from "../../../redux-store/reducer/allProductSlice";
 import { useAppDispatch, useAppSelector } from "../../../hooks/storeHooks";
 const Home = () => {
