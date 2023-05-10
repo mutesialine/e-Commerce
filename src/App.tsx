@@ -1,20 +1,17 @@
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainLayout from "./component/layouts/MainLayout";
 import Home from "./component/pages/home/Home";
+import ProductDetails from "./component/pages/home/Product/ProductDetails";
 const App = () => {
   return (
-    <MainLayout>
-      <Home />
-    </MainLayout>
+    <BrowserRouter>
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/details" element={<ProductDetails />} />
+        </Routes>
+      </MainLayout>
+    </BrowserRouter>
   );
-
-  // <BrowserRouter>
-  //   <Routes>
-  //     <Routes>
-  //       <Route path={AppRoutes.HOME} element={<HomeScreen />} />
-  //       <Route path={AppRoutes.ANY} element={<HomeScreen />} />
-  //     </Routes>
-  //   </Routes>
-  // </BrowserRouter>;
 };
 export default App;
