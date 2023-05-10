@@ -2,11 +2,13 @@ import { Footer, Header } from "../common";
 
 const MainLayout = ({ children }: any) => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <>
       <Header />
-      <div className="min-h-screen p-2">{children}</div>
+      <div className="min-h-screen p-2 max-w-screen-2xl mx-auto">
+        {children}
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
