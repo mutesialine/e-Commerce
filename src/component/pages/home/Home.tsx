@@ -22,19 +22,21 @@ const Home = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 gap-3 p-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-2">
         {products.map((item, index) => (
           <Link
             to="/details"
             state={item}
-            className="hover:opacity-80"
+            className="flex flex-col justify-center items-center hover:cursor-pointer border shadow hover:opacity-80"
             key={index}
           >
-            <div className="flex flex-col justify-center items-center hover:cursor-pointer border shadow">
-              <img className="h-65 w-60" alt="" src={item.image} />
-              <span>{`PRICE: ${item.price}`}</span>
-              <span>{item.title}</span>
-            </div>
+            <img
+              className="md:h-65 md:w-60 w-32 h-46"
+              alt=""
+              src={item.image}
+            />
+            <span>{`PRICE: ${item.price}`}</span>
+            <span className="text-center">{item.title}</span>
           </Link>
         ))}
       </div>
